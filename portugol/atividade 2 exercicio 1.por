@@ -16,9 +16,9 @@ programa
 			escreva("seus kilos de tomate ta dentro do permitido")
 			
 			
-				}senao{excesso= (peso-50)
+				}senao{excesso= peso-50
 				multa=excesso*4
-				escreva("o saco de tomate ultrpassou"+ excesso +" e vai pagar multa de"+ multa) 
+				escreva("o saco de tomate ultrpassou"+ excesso +" e vai pagar multa de "+ multa) 
 					}
 			
 			
@@ -35,7 +35,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 147; 
+ * @POSICAO-CURSOR = 349; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
