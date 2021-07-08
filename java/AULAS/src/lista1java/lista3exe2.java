@@ -9,7 +9,7 @@ Scanner ler= new Scanner(System.in);
         int  maiores=0, media=0;
         int contador=0;
         int somaL=0;
-        
+        int cont=0;
         
       for(int x=0; x<10;x++) {
     	  System.out.println(" Qual numero que caiu: ");
@@ -20,10 +20,12 @@ Scanner ler= new Scanner(System.in);
     		   maiores=lancamentos[x];
     	   }
     	   
-    }for(int x=0;x<10;x++ ) {
-    	if(lancamentos[x]==maiores) {
-    		contador++;
+    
+    	if(maiores>lancamentos[x]) {
+    		cont=lancamentos[x];
     		
+    		
+    	
     	}
     	
     	
@@ -31,7 +33,7 @@ Scanner ler= new Scanner(System.in);
       
     System.out.println(media );
     System.out.println(somaL );
-      System.out.println(  maiores);
+      System.out.println( lancamentos);
       }
 
 }
