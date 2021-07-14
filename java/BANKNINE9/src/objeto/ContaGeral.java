@@ -1,29 +1,25 @@
 package objeto;
 
-public class ContaGeral {
+public abstract class ContaGeral {
 	protected double saldo;
 	private double credito;
 	private double debito;
 	private int escolhaCredDeb;
-	private int escolhaMenu;
 	private String respostaRepeteSN;
 	private String tipo;
 	private int numero;
-	
-	
-	public ContaGeral(double saldo, double credito, double debito, int escolhaCredDeb, int escolhaMenu,
+		
+	public ContaGeral(double saldo, double credito, double debito, int escolhaCredDeb,
 			String respostaRepeteSN, String tipo, int numero) {
 		super();
 		this.saldo = saldo;
 		this.credito = credito;
 		this.debito = debito;
 		this.escolhaCredDeb = escolhaCredDeb;
-		this.escolhaMenu = escolhaMenu;
 		this.respostaRepeteSN = respostaRepeteSN;
 		this.tipo = tipo;
 		this.numero = numero;
 	}
-	
 	
 	public ContaGeral(String tipo, int numero) {
 		super();
@@ -31,84 +27,68 @@ public class ContaGeral {
 		this.numero = numero;
 	}
 
-
 	public double getSaldo() {
 		return saldo;
 	}
+	
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
+	
 	public double getCredito() {
 		return credito;
 	}
+	
 	public void setCredito(double credito) {
 		this.credito = credito;
 	}
+	
 	public double getDebito() {
 		return debito;
 	}
+	
 	public void setDebito(double debito) {
 		this.debito = debito;
 	}
+	
 	public int getEscolhaCredDeb() {
 		return escolhaCredDeb;
 	}
+	
 	public void setEscolhaCredDeb(int escolhaCredDeb) {
 		this.escolhaCredDeb = escolhaCredDeb;
 	}
-	public int getEscolhaMenu() { //MOSTRA
-		return escolhaMenu;
-	}
-	public void setEscolhaMenu(int escolhaMenu) { //ALTERA
-		this.escolhaMenu = escolhaMenu;
-	}
+
 	public String getRespostaRepeteSN() {
 		return respostaRepeteSN;
 	}
+	
 	public void setRespostaRepeteSN(String respostaRepeteSN) {
 		this.respostaRepeteSN = respostaRepeteSN;
 	}
+	
 	public String getTipo() {
 		return tipo;
 	}
+	
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	
 	
 	public int getNumero() {
 		return numero;
 	}
 
-
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
-
-	public void mostraMenu() {
-		System.out.println(" ");
-		System.out.println("-------- BANK NINE9 ------");
-		System.out.println("---ATRIBUINDO EXPOENTE----");
-		System.out.println("-----AO SEU PATRIMÔNIO----");
-		System.out.println("-----------MENU-----------");
-		System.out.println("1 - Conta Poupança");
-		System.out.println("2 - Conta Corrente");
-		System.out.println("3 - Conta Especial");
-		System.out.println("4 - Conta Empresa");
-		System.out.println("5 - Conta Estudantil");
-		System.out.println("6 - Sair");
-		System.out.println("---------------------------");
-		System.out.println("Digite a opção desejada: ");
-		System.out.println(" ");
-	}
-	
 	public void mostraHeader() {
 		System.out.println(" ");
 		System.out.println("Conta: "+this.getNumero()+" - BANK NINE9");
 		System.out.println(this.getTipo());
 		System.out.println("-----------------------");
-		System.out.println("SALDO: "+this.getSaldo());
+		System.out.println("SALDO: R$ "+this.getSaldo());
 	}
 	
 	public void mostraCredDeb(){
@@ -118,6 +98,7 @@ public class ContaGeral {
 		System.out.println("2 - Débito");
 		System.out.println("-----------------------");
 		System.out.println("Digite a opção desejada: ");
+		
 	}
 	
 	public void creditar(double valor) {
@@ -142,8 +123,7 @@ public class ContaGeral {
 		}
 	}
 	
-	
-	
+		
 	public void repeteOp(){
 		System.out.println(" ");
 		System.out.println("SALDO: R$"+this.getSaldo());
@@ -151,5 +131,26 @@ public class ContaGeral {
 		System.out.println("Deseja repetir a operação? S/N:");
 	}
 	
+	public void mostraMenu(){
+		System.out.println("-------- BANK NINE9 ------");
+		System.out.println("---ATRIBUINDO EXPOENTE----");
+		System.out.println("-----AO SEU PATRIMÔNIO----");
+		System.out.println("-----------MENU-----------");
+		System.out.println("1 - Conta Poupança");
+		System.out.println("2 - Conta Corrente");
+		System.out.println("3 - Conta Especial");
+		System.out.println("4 - Conta Empresa");
+		System.out.println("5 - Conta Estudantil");
+		System.out.println("6 - Sair");
+		System.out.println("---------------------------");
+		System.out.println("Digite a opção desejada: ");
+	}
 	
+	public void voltaMenu() {
+		if (this.getRespostaRepeteSN().toLowerCase().equals("n")) {
+			for (int i = 1; i < 2; i++) {
+				break;
+			}
+		}
+	}
 }

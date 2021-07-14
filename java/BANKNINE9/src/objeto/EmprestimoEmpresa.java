@@ -1,38 +1,22 @@
 package objeto;
 
-public class ContaPoupanca extends ContaGeral {
-	private int diaNiver;
-	private int respostaDia;
-	protected double saldo1;
-	
-	public ContaPoupanca(String tipo, int numero, int diaNiver) {
+public class EmprestimoEmpresa extends ContaGeral {
+	protected double saldo4;
+	private double emprestimoEmpresa = 10000;
+	public EmprestimoEmpresa(String tipo, int numero) {
 		super(tipo, numero);
-		this.diaNiver = diaNiver;
 	}
-
-	public int getDiaNiver() {
-		return diaNiver;
+	public double getSaldo4() {
+		return saldo4;
 	}
-
-	public void setDiaNiver(int diaNiver) {
-		this.diaNiver = diaNiver;
+	public void setSaldo4(double saldo4) {
+		this.saldo4 = saldo4;
 	}
-
-	public int getRespostaDia() {
-		return respostaDia;
+	public double getEmprestimoEmpresa() {
+		return emprestimoEmpresa;
 	}
-
-	public void setRespostaDia(int respostaDia) {
-		this.respostaDia = respostaDia;
-	}
-	
-	
-	public double getSaldo1() {
-		return saldo1;
-	}
-
-	public void setSaldo1(double saldo1) {
-		this.saldo1 = saldo1;
+	public void setEmprestimoEmpresa(double emprestimoEmpresa) {
+		this.emprestimoEmpresa = emprestimoEmpresa;
 	}
 	
 	@Override
@@ -41,15 +25,26 @@ public class ContaPoupanca extends ContaGeral {
 		System.out.println("Conta: "+this.getNumero()+" - BANK NINE9");
 		System.out.println(this.getTipo());
 		System.out.println("-----------------------");
-		System.out.println("SALDO: R$ "+this.getSaldo1());
+		System.out.println("SALDO: R$ "+this.getSaldo4());
+		System.out.println("EMPRÉSTIMO DISPONÍVEL: R$"+this.getEmprestimoEmpresa());
 	}
-
+	
+	@Override
+	public void mostraCredDeb(){
+		System.out.println(" ");
+		System.out.println("-----------------------");
+		System.out.println("1 - Crédito");
+		System.out.println("2 - Débito");
+		System.out.println("-----------------------");
+		System.out.println("Digite a opção desejada: ");
+	}
+	
 	@Override
 	public void creditar(double valor) {
 		if (valor <= 0) {
 			System.out.println("Insira um valor válido.");
 		} else {
-			this.setSaldo1(getSaldo1()+valor);
+			this.setSaldo4(getSaldo4()+valor);
 			System.out.println("Crédito no valor R$ "+valor+" feito com sucesso.");
 		}
 	}
@@ -58,12 +53,12 @@ public class ContaPoupanca extends ContaGeral {
 	public void debitar(double valor) {
 		if (valor <= 0) {
 			System.out.println("Insira um valor válido.");
-		} else if (valor > this.getSaldo1()) {
+		} else if (valor > this.getSaldo4()) {
 			System.out.println("Valor indisponível.");
-		} else if (this.getSaldo1() == 0) {
+		} else if (this.getSaldo4() == 0) {
 			System.out.println("Valor indisponível");
 		} else {
-			this.setSaldo1(getSaldo1()-valor);
+			this.setSaldo4(getSaldo4()-valor);
 			System.out.println("Débito no valor R$ "+valor+" feito com sucesso.");
 		}
 	}
@@ -71,23 +66,13 @@ public class ContaPoupanca extends ContaGeral {
 	@Override
 	public void repeteOp(){
 		System.out.println(" ");
-		System.out.println("SALDO: R$"+this.getSaldo1());
+		System.out.println("SALDO: R$"+this.getSaldo4());
+		System.out.println("EMPRÉSTIMO DISPONÍVEL: R$"+this.getEmprestimoEmpresa());
 		System.out.println("-----------------------");
 		System.out.println("Deseja repetir a operação? S/N:");
 	}
 	
-	public void perguntarDia() {
-		System.out.println("Informe a data de hoje (DD): ");
-	}
-	
-	
-	public void ajustarPoupanca() {
-		if (this.getDiaNiver() == this.getRespostaDia()) {
-			this.setSaldo1(this.getSaldo1()+((this.getSaldo1()*0.05)/100));
-			System.out.println("Reajuste de saldo + 0.05%");
-		}
-	}
-	
+	@Override
 	public void mostraMenu(){
 		System.out.println("-------- BANK NINE9 ------");
 		System.out.println("---ATRIBUINDO EXPOENTE----");
@@ -101,6 +86,17 @@ public class ContaPoupanca extends ContaGeral {
 		System.out.println("6 - Sair");
 		System.out.println("---------------------------");
 		System.out.println("Digite a opção desejada: ");
+	}
+	
+	public void emprestimo(double valor) {
+		if (valor <= 0 ) {
+			System.out.println("Valor inválido.");
+		}	else if (valor <= this.getEmprestimoEmpresa()) {
+			this.setEmprestimoEmpresa(this.getEmprestimoEmpresa()-valor);
+			this.setSaldo4(this.getSaldo4()+valor);
+		} else {
+			System.out.println("Valor indisponível.");
+		}
 	}
 	
 	

@@ -22,7 +22,7 @@ public class Testecad {
 		
 		Scanner leia = new Scanner(System.in);
 		
-		List <Funcionario> Lista = new ArrayList();
+		List <Funcionario> lista = new ArrayList();
 		
 		System.out.println("Cadastro de Funcionarios");
 		int numero= leia.nextInt();
@@ -38,11 +38,23 @@ public class Testecad {
 		System.out.println("Digite o valor por horas trabalhada: ");
 		double valorHora= leia.nextDouble();
 		
+		if(op == 'S') {
+			System.out.println(" Digite o valor do adicional :");
+			double adicional = leia.nextDouble();
+			lista.add(new Terceiro(matricula,horasTrabalhadas,valorHora,adicional) );			
+			
+		}else if (op == 'N'){
+			lista.add(new Funcionario(matricula,horasTrabalhadas,valorHora) );
+		
+		}
+		
 		
 		}	
-		
-		
-		
+		System.out.println();
+		System.out.println("Folha de Pàgamento");
+		for(Funcionario emp: lista) {
+			System.out.println("Matricula do colaborador : "+ emp.getMatricula()+"salario : "+emp.salario());
+		}
 		}
 		
 		
