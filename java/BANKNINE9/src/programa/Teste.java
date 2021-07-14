@@ -2,13 +2,13 @@ package programa;
 
 import java.util.Scanner;
 
-import Entities.Banner;
-import Entities.ContaCorrente;
-import Entities.ContaGeral;
-import Entities.ContaPoupanca;
-import Entities.CreditoEspecial;
-import Entities.EmprestimoEmpresa;
-import Entities.EmprestimoEstudantil;
+import objeto.Banner;
+import objeto.ContaCorrente;
+import objeto.ContaGeral;
+import objeto.ContaPoupanca;
+import objeto.ContaEspecial;
+import objeto.EmprestimoEmpresa;
+import objeto.EmprestimoEstudantil;
 import objeto.Banner;
 import objeto.ContaCorrente;
 import objeto.ContaEspecial;
