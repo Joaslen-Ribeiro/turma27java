@@ -1,0 +1,25 @@
+create database db_escola
+
+use db_escola
+
+
+
+create table tb_aluno(
+id bigint (5) auto_increment,
+nome varchar(20) not null,
+idade bigint (5),
+turma bigint (5),
+nota decimal (10,2),
+aitvo boolean,
+
+primary key(id)
+
+
+);
+
+insert into tb_aluno(nome, idade, turma, nota, aitvo) values ("marcelo", 31, 10, 8.5 , true);
+insert into tb_aluno(nome, idade, turma, nota, aitvo) values ("jessica", 21,2,6.5 , true);
+insert into tb_aluno(nome, idade, turma, nota, aitvo) values ("ednilson", 41,3, 9.3 , true);
+insert into tb_aluno(nome, idade, turma, nota, aitvo) values ("marechal", 37, 1, 8.1 , true);
+insert into tb_aluno(nome, idade, turma, nota, aitvo) values ("mathias", 28, 1, 6.5 , true);
+insert into tb_aluno(nome, idade, turma, nota, aitvo) values ("Raik", 23, 1,5.5 , true);

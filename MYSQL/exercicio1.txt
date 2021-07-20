@@ -1,0 +1,22 @@
+use rh_empresa;
+
+create table funcionaries(
+     id bigint (5) auto_increment,
+     idade bigint (5),
+     salario decimal (10.2),
+	 ativo boolean ,
+     nome varchar(20) not null,
+     cargo varchar(20) not null,
+     
+     primary key (id)
+);
+INSERT INTO funcionaries (idade,salario,ativo,nome,cargo) VALUES (22,4500.00,true,"richard","gerente ");
+INSERT INTO funcionaries (idade,salario,ativo,nome,cargo) VALUES (22,2500.00,true,"jeff","ajudante ");
+INSERT INTO funcionaries (idade,salario,ativo,nome,cargo) VALUES (22,2500.00,true,"jhonson","auxiliar ");
+INSERT INTO funcionaries (idade,salario,ativo,nome,cargo) VALUES (22,3500.00,true,"andre","conferente");
+INSERT INTO funcionaries (idade,salario,ativo,nome,cargo) VALUES (22,5500.00,true,"jose","CEO");
+
+select *from funcionaries  where salario > 2.000;
+select *from funcionaries  where salario < 2.000;
+
+UPDATE `rh_empresa`.`funcionaries` SET `salario` = '4700' WHERE (`id` = '1');
