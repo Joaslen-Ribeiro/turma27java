@@ -1,0 +1,50 @@
+create database db_pizzaria_legal
+
+use db_pizzaria_legal
+
+create table tb_categoria(
+	id bigint auto_increment,
+    tipo varchar(15),
+    tamanho varchar(15),
+    disponivel boolean,
+    
+    primary key(id)
+    
+
+
+insert into tb_categoria (tipo,tamanho,disponivel) values ("doce","medio",true);
+insert into tb_categoria (tipo,tamanho,disponivel) values ("Salgada","medio",true );
+insert into tb_categoria (tipo,tamanho,disponivel) values ("vegana","medio",true);
+insert into tb_categoria (tipo,tamanho,disponivel) values ("vegetariana","medio",true);
+insert into tb_categoria (tipo,tamanho,disponivel) values ("light","medio",true );
+
+
+create table tb_pizza(
+   id bigint auto_increment ,
+   nome varchar(15),
+   valor int ,
+   borda boolean,
+   sabor varchar(15),
+   comRefri boolean,
+   categoria_id bigint,
+   primary key(id),
+   
+   foreign key (categoria_id) references tb_categoria(id) 
+   
+   
+   );
+
+insert into tb_pizza(nome,valor,borda,sabor, comRefri, categoria_id) values("mussarela",25,true,"mussarela",true,2 );
+insert into tb_pizza(nome,valor,borda,sabor, comRefri, categoria_id) values("portuguesa",25,true,"vai tudo",true,2);
+insert into tb_pizza(nome,valor,borda,sabor, comRefri, categoria_id) values("vegana",38,true,"mix de vegetais",true,3 );
+insert into tb_pizza(nome,valor,borda,sabor, comRefri, categoria_id) values("nuttela",40,true,"choco-morango ",true,1 );
+insert into tb_pizza(nome,valor,borda,sabor, comRefri, categoria_id) values("marguerita",33,true,"queijo vegano",true,4 );
+insert into tb_pizza(nome,valor,borda,sabor, comRefri, categoria_id) values("calabresa",28,true,"calab-cebola",true,2 );
+insert into tb_pizza(nome,valor,borda,sabor, comRefri, categoria_id) values("atum",49,true,"atum solido",true, 2);
+insert into tb_pizza(nome,valor,borda,sabor, comRefri, categoria_id) values("muss-bufala",55,true,"tomate seco",true,5 );
+
+select * from tb_pizza where valor>45
+select * from tb_pizza where valor> 29 and valor <62
+select * from tb_pizza where nome like  "%c%"
+select * from tb_categoria inner join tb_pizza on tb_categoria.id = tb_pizza.categoria_id where tb_categoria.id 
+select * from tb_categoria inner join tb_pizza on tb_categoria.id = tb_pizza.categoria_id where tb_categoria.id=2

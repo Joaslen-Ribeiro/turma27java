@@ -1,0 +1,51 @@
+create database db_generation_game_online
+
+use db_generation_game_online
+
+create table tb_classe  (
+    id bigint auto_increment,
+	categoria varchar(20),
+    dominio varchar(10),
+    ativo boolean,
+    
+
+primary key (id)
+);
+
+insert into tb_classe (categoria,dominio,ativo) values ("Guerreiro","tai-justsu",true);
+insert into tb_classe (categoria,dominio,ativo) values ("arqueiro","agilidade",true);
+insert into tb_classe (categoria,dominio,ativo) values ("Bruxo","Magia",true);
+insert into tb_classe (categoria,dominio,ativo) values ("ogro","Força",true);
+insert into tb_classe (categoria,dominio,ativo) values ("ninja","equilibrio",true);
+
+select * from tb_classe;
+
+create table tb_personagem (
+id bigint  auto_increment,
+nome varchar (15) not null,
+poder int not null,
+defesa int not null,
+mundo varchar(15),
+idade int ,
+classe_id bigint,
+primary key (id),
+FOREIGN KEY (classe_id) REFERENCES tb_classe (id)
+);
+
+insert into tb_personagem (nome,poder, defesa,mundo,idade,classe_id) values ("guardiao celta",1500,1200,"aldeia do ferro " , 50, 1);
+insert into tb_personagem (nome,poder, defesa,mundo,idade,classe_id) values ("arqueiro verde",750,800,"amazonas " ,25, 2);
+insert into tb_personagem (nome,poder, defesa,mundo,idade,classe_id) values ("Ronaldinho",5000,5000 ,"Brasil ",88 , 3);
+insert into tb_personagem (nome,poder, defesa,mundo,idade,classe_id) values ("shrek",2000,1100 ,"floresta ",350 , 4);
+insert into tb_personagem (nome,poder, defesa,mundo,idade,classe_id) values ("Shikamaru Nara",2000,3500,"aldeia da folha " , 20, 5);
+insert into tb_personagem (nome,poder, defesa,mundo,idade,classe_id) values ("robin-hood",1250,1000,"reino-unido " ,17 , 2);
+insert into tb_personagem (nome,poder, defesa,mundo,idade,classe_id) values ("mestre do magos",350,900 ,"O reino ",45 ,3);
+insert into tb_personagem (nome,poder, defesa,mundo,idade,classe_id) values ("Naruto",4000,350,"aldeia da folha " ,18,5);
+
+
+
+select * from tb_personagem where poder>2000
+select * from tb_personagem where defesa> 1000 and defesa <2000
+select * from tb_personagem where nome like  "%c%"
+
+select * from tb_classe inner join tb_personagem on tb_classe.id = tb_personagem.classe_id where tb_classe.id
+select * from tb_classe inner join tb_personagem on tb_classe.id = tb_personagem.classe_id where tb_classe.id=3
