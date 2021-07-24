@@ -48,3 +48,4 @@ select* from tb_produto where valor >3 and valor <60
 select* from tb_produto where nome like "%b %"
 
 select* from tb_categoria inner join tb_produto on tb_categoria.id = tb_produto.categoria_id where tb_categoria.id=2
+

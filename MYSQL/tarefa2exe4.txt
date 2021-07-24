@@ -1,0 +1,62 @@
+create database db_cidade_das_carnes
+
+use db_cidade_das_carnes
+
+create table tb_categoria
+
+create table tb_categoria(
+  id bigint auto_increment,
+  tipo varchar(15),
+  tipodeC varchar (15),
+  ativo boolean,
+  
+  primary key (id)
+  
+);
+
+
+insert into tb_categoria(tipo,tipodeC,ativo)values("Bovina ","Peça",true);
+insert into tb_categoria(tipo,tipodeC,ativo)values("suina ","quilo",true);
+insert into tb_categoria(tipo,tipodeC,ativo)values("carneiro ","Peça",true);
+
+create table tb_produto(
+  id bigint auto_increment,
+  nome varchar(15),
+  valor decimal(10,2),
+  validade date,
+  Carne1 boolean,
+  carne2 boolean,
+  categoria_id bigint,
+
+select * from tb_categoria 
+inner join tb_produto on tb_categoria.id = tb_produto.categoria_id 
+and tb_produto.valor between 20.00 and 40.00
+order by valor desc
+
+  
+  primary key (id),
+  foreign key (categoria_id) references tb_categoria(id)
+
+);
+
+insert into tb_produto (nome,valor,validade,carne1,carne2,categoria_id)values("Contra-filé",40.90,"2021-12-25",true,false,1);
+insert into tb_produto (nome,valor,validade,carne1,carne2,categoria_id)values("Costelinha",30.90,"2021-11-25",true,false,2);
+insert into tb_produto (nome,valor,validade,carne1,carne2,categoria_id)values("acém",25.90,"2021-12-25",false,true,1);
+insert into tb_produto (nome,valor,validade,carne1,carne2,categoria_id)values("carré",30.90,"2021-12-31",true,false,1);
+insert into tb_produto (nome,valor,validade,carne1,carne2,categoria_id)values("barriga",20.90,"2021-09-25",false,true,2);
+insert into tb_produto (nome,valor,validade,carne1,carne2,categoria_id)values("picanha",50.90,"2022-01-25",true,false,1);
+insert into tb_produto (nome,valor,validade,carne1,carne2,categoria_id)values("pernil",41.90,"2021-12-25",true,false,3);
+insert into tb_produto (nome,valor,validade,carne1,carne2,categoria_id)values("Coxao-duro",39.90,"2021-10-15",false,true,1);
+
+
+select * from tb_produto where  valor >50
+select * from tb_produto where  valor >3 and valor<60
+select * from tb_produto where nome  like "%C%" 
+select * from tb_categoria inner join tb_produto on tb_categoria.id = tb_produto.categoria_id where tb_categoria.id=1
+
+
+select * from tb_categoria 
+inner join tb_produto on tb_categoria.id = tb_produto.categoria_id 
+where tb_categoria.tipo in ("bovina","suina " )
+and tb_produto.valor between 20.00 and 40.00
+order by valor desc

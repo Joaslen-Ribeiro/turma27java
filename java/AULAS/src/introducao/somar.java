@@ -3,7 +3,7 @@
 Ex.: o usuário entra 7, o programa vai mostrar 28, pois  1+2+3+4+5+6+7=28.*/
 package introducao;
 
-public class somasseusdivisores {
+public class somar {
 	import java.util.Scanner;   
 	public static void main(String[] args) {
 		
