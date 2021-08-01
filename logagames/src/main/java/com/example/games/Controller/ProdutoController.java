@@ -27,16 +27,20 @@ public class ProdutoController {
 	private ProdutoRepository repository; 
 	
 	@GetMapping
-	public ResponseEntity<List<Produto>> GetAll(){
+	public ResponseEntity<List<Produto>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	@GetMapping("/{id}")
-	public ResponseEntity<Produto> GetById(@PathVariable long id){
+	public ResponseEntity<Produto> getById(@PathVariable long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity .notFound().build());
 	}
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Produto>>GetByNome(@PathVariable String nome){
-		return ResponseEntity.ok(repository.findAllByNomeContainingIgnorecase(nome));
+	public ResponseEntity<List<Produto>>GetByName(@PathVariable String nome){
+		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome)); 
+	}
+	@GetMapping("/preco/{preco}")
+	public ResponseEntity<List<Produto>>GetByPreco(@PathVariable double preco){
+		return ResponseEntity.ok(repository.findAllByPreco(preco));
 	}
 	@PostMapping
 	public ResponseEntity<Produto> post(@RequestBody Produto produto){
@@ -46,7 +50,7 @@ public class ProdutoController {
 	public ResponseEntity<Produto> put(@RequestBody Produto produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
 	}
