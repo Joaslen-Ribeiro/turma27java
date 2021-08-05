@@ -17,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "tb_tema")
 public class Tema {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id        //primary key
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  // gerar automaticamente
 	private long id;
 	
 	@NotNull
